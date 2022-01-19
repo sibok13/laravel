@@ -1,0 +1,13 @@
+a {
+    text-decoration: none;
+    color: #6c757d;
+}
+a:hover {
+    color: #ffffff;
+}
+.a-heder:hover {
+    color: #c8c8c8;
+}
+.content-footer {
+    text-align: right;
+}
