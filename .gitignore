@@ -15,3 +15,6 @@ yarn-error.log
 /.idea
 /.vscode
 config/debugbar.php
+public/css/bootstrap.min.css
+public/css/dashboard.css
+public/js/bootstrap.bundle.min.js
