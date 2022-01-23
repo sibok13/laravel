@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return 'Добавить категорию';
+        return view('admin.category.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except('_token');
+        file_put_contents(public_path('/data/category.json'), json_encode($data));
+        return json_encode($data);
     }
 
     /**

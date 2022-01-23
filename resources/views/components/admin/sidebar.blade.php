@@ -2,13 +2,13 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="http://laravel.gb/admin/news">
+          <a class="nav-link @if(request()->routeIs('admin.news.*')) active @endif" href="http://laravel.gb/admin/news">
             <span data-feather="file"></span>
             Новости
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://laravel.gb/admin/category">
+          <a class="nav-link @if(request()->routeIs('admin.category.*')) active @endif" href="http://laravel.gb/admin/category">
             <span data-feather="shopping-cart"></span>
             Категории
           </a>

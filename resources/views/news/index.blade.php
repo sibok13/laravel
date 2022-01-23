@@ -23,10 +23,7 @@
                 <a class="a-heder" href="{{ route('category.news', ['category' => $item['category']]) }}"><h2 style="margin: 5px 0;">{{ $item['title'] }}</h2></a>
                 <p>{{ $item['description'] }}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a style="text-decoration: none;" href="{{ route('category.news', ['category' => $item['category']]) }}">Читать</a></button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a style="text-decoration: none;" href="{{ route('category.news', ['category' => $item['category']]) }}">Читать</a></button>
               </div>
             </div>
           </div>

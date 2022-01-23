@@ -25,10 +25,7 @@
                 <div style="font-size: smaller;">Автор: {{ $news['author'] }}</div>
                 <p>{!! $news['description'] !!}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a style="text-decoration: none;" href="{{ route('news.item', ['id' => $news['id']]) }}">Читать далее...</a></button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a style="text-decoration: none;" href="{{ route('news.item', ['id' => $news['id']]) }}">Читать далее...</a></button>
                 <small class="text-muted">{{ $news['date'] }}</small>
               </div>
             </div>

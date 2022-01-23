@@ -24,7 +24,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.news.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except('_token');
+        file_put_contents(public_path('/data/news.json'), json_encode($data));
+        return json_encode($data);
     }
 
     /**

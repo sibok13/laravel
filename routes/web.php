@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\ContactController as ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 
 // News
 
-Route::group(['as'=>'Admin.', 'prefix' => 'admin'], function(){
+Route::group(['as'=>'admin.', 'prefix' => 'admin'], function(){
     Route::resource('/category', AdminCategoryController::class);
     Route::resource('/news', AdminNewsController::class);
 });
@@ -41,3 +42,5 @@ Route::get('/category/{category}', [CategoryController::class, 'showCategory'])
 Route::get('/news/{id}', [NewsController::class, 'showItem'])
     ->where('id', '\d+')
     ->name('news.item');
+
+Route::resource('/contact', ContactController::class);

@@ -11,3 +11,10 @@ a:hover {
 .content-footer {
     text-align: right;
 }
+.btn-primary {
+    margin-top: 15px;
+    float: right;
+}
+.center {
+    justify-content: center;
+}
