@@ -18,3 +18,9 @@ a:hover {
 .center {
     justify-content: center;
 }
+.col {
+    display: flex;
+}
+.card {
+    width: 100%;
+}

@@ -36,7 +36,7 @@ Route::get('/', [MainController::class, 'index'])
 Route::get('/category', [CategoryController::class, 'index'])
     ->name('category.index');
 
-Route::get('/category/{category}', [CategoryController::class, 'showCategory'])
+Route::get('/category/{category}', [NewsController::class, 'showNewsCategory'])
     ->name('category.news');
 
 Route::get('/news/{id}', [NewsController::class, 'showItem'])
