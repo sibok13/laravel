@@ -11,14 +11,18 @@
     <div class="btn-toolbar mb-2 mb-md-0">
     </div>
     </div>
-    <form method="POST" action="{{ route('admin.category.store') }}">
+    <form method="POST" action="{{ route('admin.parse.store') }}">
       @csrf
       <div class="form-group">
         <label for="title">Заголовок категории</label>
         <input type="text" class="form-control" id="title" name="title" required>
       </div>
       <div class="form-group">
-        <label for="description">Краткое описание</label>
+        <label for="title">Ссылка</label>
+        <input type="text" class="form-control" id="link" name="link" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Описание</label>
         <input type="text" class="form-control" id="description" name="description">
       </div>
       <button type="submit" class="btn btn-primary">Создать</button>

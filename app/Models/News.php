@@ -12,6 +12,10 @@ class News extends Model
 
     protected $table = 'news';
 
+    protected $fillable = [
+        'title', 'author', 'description', 'status', 'slug'
+    ];
+
     public function getNews($category){
         return DB::select("SELECT n.id, n.title, n.description, n.author, n.status, n.date FROM {$this->table} as n
         JOIN news_in_category as nc ON nc.news_id = n.id
@@ -19,7 +23,4 @@ class News extends Model
         WHERE c.slug='{$category}'");
     }
 
-    public function getNewsById($id){
-        return DB::select("SELECT * FROM {$this->table} WHERE id = {$id}");
-    }
 }

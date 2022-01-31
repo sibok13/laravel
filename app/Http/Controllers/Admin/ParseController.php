@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-use App\Models\Category;
+use App\Models\OrderParse;
 
-class CategoryController extends Controller
+class ParseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorys = Category::all();
+        $parseList = OrderParse::all();
 
-        return view('admin.category.index', [
-            'newsList' => $categorys
+        return view('admin.parse.index', [
+            'parseList' => $parseList,
         ]);
     }
 
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.parse.create');
     }
 
     /**
@@ -42,13 +42,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only('title', 'description') + [
-            'slug' => Str::slug($request->input('title'))
-        ];
+        $data = $request->only('title', 'link', 'description');
 
-        $created = Category::create($data);
+        $created = OrderParse::create($data);
         if($created){
-            return redirect()->route('admin.category.index')
+            return redirect()->route('admin.parse.index')
                 ->with('success', 'Запись добавлена');
         }
         return back()->with('error', 'Ошибка добавления')
@@ -72,10 +70,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(OrderParse $parse)
     {
-        return view('admin.category.edit', [
-            'category' => $category,
+        return view('admin.parse.edit', [
+            'parse' => $parse,
         ]);
     }
 
@@ -86,19 +84,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, OrderParse $parse)
     {
-        $data = $request->only('title', 'description') + [
-            'slug' => Str::slug($request->input('title'))
-        ];
+        $data = $request->only('title', 'link', 'description');
 
-        $updated = $category->fill($data)->save();
+        $updated = $parse->fill($data)->save();
         if($updated){
-            return redirect()->route('admin.category.index')
+            return redirect()->route('admin.parse.index')
                 ->with('success', 'Запись обновлена');
         }
         return back()->with('error', 'Ошибка обновления')
-        ->withInput();
+            ->withInput();
     }
 
     /**
