@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\parse\CreateRequest;
+use App\Http\Requests\parse\UpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -37,10 +39,10 @@ class ParseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         $data = $request->only('title', 'link', 'description');
 
@@ -80,11 +82,11 @@ class ParseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  UpdateRequest  $request
+     * @param  OrderParse $parse
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrderParse $parse)
+    public function update(UpdateRequest $request, OrderParse $parse)
     {
         $data = $request->only('title', 'link', 'description');
 

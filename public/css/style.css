@@ -24,3 +24,8 @@ a:hover {
 .card {
     width: 100%;
 }
+.error {
+    font-weight: 700;
+    color: red; 
+    font-size: x-small;
+}
