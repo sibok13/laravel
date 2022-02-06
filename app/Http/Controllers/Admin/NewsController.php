@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\news\CreateRequest;
 use App\Http\Requests\news\UpdateRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\News;
-use Symfony\Component\Console\Input\Input;
 
 class NewsController extends Controller
 {

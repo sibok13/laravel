@@ -19,6 +19,12 @@
             Парсинг
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link @if(request()->routeIs('admin.users.*')) active @endif" href="http://laravel.gb/admin/users">
+            <span data-feather="shopping-cart"></span>
+            Пользователи
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

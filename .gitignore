@@ -21,3 +21,10 @@ public/js/bootstrap.bundle.min.js
 public/data/category.json
 public/data/contact.json
 public/data/news.json
+public/mix-manifest.json
+resources/sass/*
+resources/js/*
+public/js/app.js
+webpack.mix.js
+package.json
+package-lock.json

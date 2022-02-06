@@ -16,11 +16,8 @@ class News extends Model
         'title', 'author', 'description', 'status', 'slug'
     ];
 
-    public function getNews($category){
-        return DB::select("SELECT n.id, n.title, n.description, n.author, n.status, n.date FROM {$this->table} as n
-        JOIN news_in_category as nc ON nc.news_id = n.id
-        JOIN category as c ON c.id = nc.category_id
-        WHERE c.slug='{$category}'");
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'news_in_category', 'news_id', 'category_id');
     }
 
 }

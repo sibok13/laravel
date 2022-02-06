@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use Illuminate\Http\Request;
+use App\Models\Category;
 
 class NewsController extends Controller
 {
@@ -13,10 +13,11 @@ class NewsController extends Controller
     
     public function showNewsCategory($category) {
 
-        $news = new News();
+        $news = Category::find(Category::where('slug', $category)->value('id'));
+        $news = $news->news;
 
         return view('news/news', [
-            'newsList' => $news->getNews($category)
+            'newsList' => $news
         ]);
     }
 

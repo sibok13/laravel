@@ -50,7 +50,7 @@
         <a href="/" class="text-white">Главная</a>
         <a href="/category" class="text-white">Категории</a>
         <a href="/contact" class="text-white">Контакты</a>
-        <a href="/admin/category" class="text-white">Вход</a>
+        <a href="/account" class="text-white">Вход</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
