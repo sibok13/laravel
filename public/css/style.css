@@ -1,0 +1,36 @@
+a {
+    text-decoration: none;
+    color: #6c757d;
+}
+a:hover {
+    color: #ffffff;
+}
+.a-heder:hover {
+    color: #c8c8c8;
+}
+.content-footer {
+    text-align: right;
+}
+.btn-primary {
+    margin-top: 15px;
+    float: right;
+}
+.btn-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.center {
+    justify-content: center;
+}
+.col {
+    display: flex;
+}
+.card {
+    width: 100%;
+}
+.error {
+    font-weight: 700;
+    color: red; 
+    font-size: x-small;
+}
