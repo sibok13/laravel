@@ -14,7 +14,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if(request()->routeIs('admin.parse.*')) active @endif" href="http://laravel.gb/admin/parse">
+          <a class="nav-link @if(request()->routeIs('admin.resurce.*')) active @endif" href="http://laravel.gb/admin/resurce">
             <span data-feather="shopping-cart"></span>
             Парсинг
           </a>

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\parse;
+namespace App\Http\Requests\resurce;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class CreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'min:5', 'max:200'],
             'link' => ['required', 'url'],
-            'description' => ['alpha_dash', 'nullable']
+            'description' => ['nullable']
         ];
     }
 }

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\parse\CreateRequest;
-use App\Http\Requests\parse\UpdateRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\resurce\CreateRequest;
+use App\Http\Requests\resurce\UpdateRequest;
 use App\Models\OrderParse;
 
 class ParseController extends Controller
@@ -21,7 +18,7 @@ class ParseController extends Controller
     {
         $parseList = OrderParse::all();
 
-        return view('admin.parse.index', [
+        return view('admin.resurce.index', [
             'parseList' => $parseList,
         ]);
     }
@@ -33,7 +30,7 @@ class ParseController extends Controller
      */
     public function create()
     {
-        return view('admin.parse.create');
+        return view('admin.resurce.create');
     }
 
     /**
@@ -48,7 +45,7 @@ class ParseController extends Controller
 
         $created = OrderParse::create($data);
         if($created){
-            return redirect()->route('admin.parse.index')
+            return redirect()->route('admin.resurce.index')
                 ->with('success', 'Запись добавлена');
         }
         return back()->with('error', 'Ошибка добавления')
@@ -72,10 +69,10 @@ class ParseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(OrderParse $parse)
+    public function edit(OrderParse $resurce)
     {
-        return view('admin.parse.edit', [
-            'parse' => $parse,
+        return view('admin.resurce.edit', [
+            'parse' => $resurce,
         ]);
     }
 
@@ -86,13 +83,13 @@ class ParseController extends Controller
      * @param  OrderParse $parse
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, OrderParse $parse)
+    public function update(UpdateRequest $request, OrderParse $resurce)
     {
         $data = $request->only('title', 'link', 'description');
 
-        $updated = $parse->fill($data)->save();
+        $updated = $resurce->fill($data)->save();
         if($updated){
-            return redirect()->route('admin.parse.index')
+            return redirect()->route('admin.resurce.index')
                 ->with('success', 'Запись обновлена');
         }
         return back()->with('error', 'Ошибка обновления')

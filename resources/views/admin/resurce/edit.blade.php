@@ -10,7 +10,7 @@
     <div class="btn-toolbar mb-2 mb-md-0">
     </div>
     </div>
-    <form method="POST" action="{{ route('admin.parse.update', ['parse' => $parse]) }}">
+    <form method="POST" action="{{ route('admin.resurce.update', ['resurce' => $parse]) }}">
         @csrf
         @method('put')
         <div class="form-group">

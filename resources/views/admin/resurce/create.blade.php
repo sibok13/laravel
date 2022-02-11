@@ -10,7 +10,7 @@
     <div class="btn-toolbar mb-2 mb-md-0">
     </div>
     </div>
-    <form method="POST" action="{{ route('admin.parse.store') }}">
+    <form method="POST" action="{{ route('admin.resurce.store') }}">
       @csrf
       <div class="form-group">
         <label for="title">Заголовок категории</label>
