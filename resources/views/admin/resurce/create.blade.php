@@ -23,6 +23,15 @@
         @error('link')<div class="error">{{ $message }}</div>@enderror
       </div>
       <div class="form-group">
+        <label for="category">Категория</label>
+        <select class="form-control" id="category" name="category">
+          @foreach ($catygoryList as $category)
+          <option value="{{ $category->id }}">{{ $category->title }}</option>
+          @endforeach
+        </select>
+        @error('category')<div class="error">{{ $message }}</div>@enderror
+    </div>
+      <div class="form-group">
         <label for="description">Описание</label>
         <input type="text" class="form-control" id="description" name="description">
         @error('description')<div class="error">{{ $message }}</div>@enderror

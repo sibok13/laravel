@@ -24,6 +24,18 @@
             @error('link')<div class="error">{{ $message }}</div>@enderror
         </div>
         <div class="form-group">
+            <label for="link">Ссылка</label>
+            <select multiple class="form-control" id="category" name="category">
+                @foreach ($catygoryList as $category)
+                <option value="{{ $category->id }}" 
+                    @if($category->id == $selectedCategories) 
+                        selected 
+                    @endif
+                    >{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="description">Описание</label>
             <textarea class="form-control" id="description" name="description" rows="3">{{ $parse->description }}</textarea>
             @error('description')<div class="error">{{ $message }}</div>@enderror

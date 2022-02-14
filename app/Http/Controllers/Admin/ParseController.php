@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\resurce\CreateRequest;
 use App\Http\Requests\resurce\UpdateRequest;
 use App\Models\OrderParse;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class ParseController extends Controller
 {
@@ -30,7 +32,10 @@ class ParseController extends Controller
      */
     public function create()
     {
-        return view('admin.resurce.create');
+        $categories = Category::all();
+        return view('admin.resurce.create', [
+            'catygoryList' => $categories,
+        ]);
     }
 
     /**
@@ -41,8 +46,7 @@ class ParseController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $data = $request->only('title', 'link', 'description');
-
+        $data = $request->only('title', 'link', 'category', 'description');
         $created = OrderParse::create($data);
         if($created){
             return redirect()->route('admin.resurce.index')
@@ -71,8 +75,14 @@ class ParseController extends Controller
      */
     public function edit(OrderParse $resurce)
     {
+        $categories = Category::all();
+        $selectedCategories = DB::table('oreder_parse')
+            ->where('id', $resurce->id)->first();
+
         return view('admin.resurce.edit', [
             'parse' => $resurce,
+            'catygoryList' => $categories,
+            'selectedCategories' => $selectedCategories->category
         ]);
     }
 
@@ -80,13 +90,12 @@ class ParseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  UpdateRequest  $request
-     * @param  OrderParse $parse
+     * @param  OrderParse $resurce
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, OrderParse $resurce)
     {
-        $data = $request->only('title', 'link', 'description');
-
+        $data = $request->only('title', 'link', 'description', 'category');
         $updated = $resurce->fill($data)->save();
         if($updated){
             return redirect()->route('admin.resurce.index')

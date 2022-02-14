@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\OrderParse;
 use Illuminate\Support\Str;
 use App\Models\News;
+use Illuminate\Support\Facades\DB;
 
 class ParserController extends Controller
 {
@@ -17,28 +18,34 @@ class ParserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, Parser $servise)
+    public function __invoke(Parser $servise)
     {
-        $parseList = OrderParse::get('link')->toArray();
+        $parseList = OrderParse::All('link', 'category')->toArray();
         $parceResult = [];
-
         foreach ($parseList as $url)
         {
-            $parceResult[] = $servise->setLink($url['link'])->parse();
+            $parceResult[] = $servise->setLink($url['link'])->parse() + ['category'=>$url['category']];
         }
-
         foreach ($parceResult as $item) 
         {
             foreach ($item['news'] as $news) 
             {
-                $data = [
-                    'title' => $news['title'],
-                    'description' => $news['description'],
-                    'author' => $item['title'],
-                    'status' => 'PUBLISHED',
-                    'slug' => Str::slug($news['title'])
-                ];
-                News::create($data);
+                if(!$item = News::where('title', $news['title'])->first()){
+                    $data = [
+                        'title' => $news['title'],
+                        'description' => $news['description'],
+                        'author' => $item['title'],
+                        'status' => 'PUBLISHED',
+                        'slug' => Str::slug($news['title'])
+                    ];
+                    $model = News::create($data);
+    
+                    DB::table('news_in_category')
+                    -> insert([
+                        'category_id' => $item['category'],
+                        'news_id' => $model->id
+                    ]);
+                };
             }
         }
         return redirect()->route('admin.resurce.index')

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\ParseController as AdminResurceController;
 use App\Http\Controllers\Admin\ParserController as AdminParserController;
+use App\Http\Controllers\Admin\JobsController as AdminJobsController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\ContactController as ContactController;
 use App\Http\Controllers\SocialController;
@@ -45,6 +46,8 @@ Route::group(['middleware'=>'auth'], function(){
         Route::resource('/users', AdminUserController::class);
         Route::get('/parser', AdminParserController::class)
         ->name('parser');
+        Route::get('/jobs', AdminJobsController::class)
+        ->name('jobs');
 
     });
 });

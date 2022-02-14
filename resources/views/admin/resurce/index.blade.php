@@ -19,6 +19,7 @@
               <td>Id</td>
               <td>Title</td>
               <td>Link</td>
+              <td>Категория</td>
               <td>Description</td>
               <td>Действия</td>
             </tr>
@@ -28,6 +29,7 @@
             <td>{{ $parse->id }}</td>
             <td>{{ $parse->title }}</td>
             <td>{{ $parse->link }}</td>
+            <td>{{ $parse->category }}</td>
             <td>{{ $parse->description }}</td>
             <td><a class="btn btn-sm btn-outline-secondary" href="{{ route('admin.resurce.edit', [$parse -> id]) }}">Редактировать</a> 
               <a class="btn btn-sm btn-outline-secondary" href="">Удалить</a>
@@ -39,5 +41,8 @@
         </table>
         <div class="btn-right">
           <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{ route('admin.parser') }}">Спарсить все!</a></button>
+        </div><br>
+        <div class="btn-right">
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{ route('admin.jobs') }}">Добавить все в очередь!</a></button>
         </div>
 @endsection

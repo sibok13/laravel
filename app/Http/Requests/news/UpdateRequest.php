@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'title' => ['required', 'string', 'min:5', 'max:200'],
             'author' => ['required', 'string', 'min:5', 'max:200'],
             'description' => ['required', 'string', 'min:10'],
-            'status' => ['required', 'string', 'min:4', 'max:8']
+            'status' => ['required', 'string', 'min:4', 'max:12']
         ];
     }
 }

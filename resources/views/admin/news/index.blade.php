@@ -17,12 +17,11 @@
           <thead>
             <tr>
               <td>Id</td>
-              <td>Title</td>
+              <td>Заголовок</td>
               <td>Slug</td>
-              <td>Description</td>
-              <td>Author</td>
-              <td>Status</td>
-              <td>Date</td>
+              <td>Автор</td>
+              <td>Статус</td>
+              <td>Дата</td>
               <td>Действия</td>
             </tr>
           </thead>
@@ -31,7 +30,6 @@
             <td>{{ $news->id }}</td>
             <td>{{ $news->title }}</td>
             <td>{{ $news->slug }}</td>
-            <td>{{ $news->description }}</td>
             <td>{{ $news->author }}</td>
             <td>{{ $news->status }}</td>
             <td>{{ $news->date }}</td>

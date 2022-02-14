@@ -50,5 +50,12 @@
             @error('status')<div class="error">{{ $message }}</div>@enderror
         </div>
         <button type="submit" class="btn btn-primary">Сохранить</button>
-      </form>
+    </form>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#description' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection

@@ -12,6 +12,6 @@ class OrderParse extends Model
     protected $table = 'oreder_parse';
 
     protected $fillable = [
-        'title', 'link', 'description'
+        'title', 'link', 'category', 'description'
     ];
 }
